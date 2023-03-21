@@ -9,7 +9,7 @@
     "runAllTestsInBackground": "npx cypress run --headless",
     "runSpecificTestInBackground": "npx cypress run --spec \"cypress/integration/myScripts/pieChart.js\"",
     "openBrowserToRun": "npx cypress open",
-    "runAllTestsChrome": "npx cypress run --browser chrome",
+    " ": "npx cypress run --browser chrome",
     "runAllTestsChromiumWithPath": "cypress run --browser /usr/bin/chromium",
     "runAllTestsWithHeaded": "npx cypress run --headed",
     "runAllTestsWithChromeHeaded": "npx cypress run --browser chrome --headed",
