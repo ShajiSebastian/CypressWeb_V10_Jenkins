@@ -1,5 +1,11 @@
 pipeline {
-   agent any
+  agent {
+    // this image provides everything needed to run Cypress
+    docker {
+      image 'cypress/included:10.8.0'
+    }
+  }
+
 
    tools {nodejs "NodeMar2023"}
 
