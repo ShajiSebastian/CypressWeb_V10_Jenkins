@@ -18,8 +18,9 @@ pipeline {
        }
        stage('Running scripts') {
            steps {
+             sh 'npx cypress run'
              sh 'docker run -it -v $PWD:/e2e -w /e2e cypress/included:10.8.0'
-               sh 'npx cypress run'
+               
            }
        }
        stage('Deploy') {
