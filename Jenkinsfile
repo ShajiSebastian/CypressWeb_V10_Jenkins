@@ -10,9 +10,9 @@ pipeline {
                sh 'npm install lambdatest-cypress-cli'
            }
        }
-       stage('e2e Tests') {
+       stage('Running scripts') {
            steps {
-               sh 'npm run runAllTestsInBackground'
+               sh 'npx cypress run'
            }
        }
        stage('Deploy') {
