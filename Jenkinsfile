@@ -14,12 +14,12 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                // sh 'npm run build'
+                sh 'npm run build'
             }
         }
         stage('Test') { 
             steps {
-                // sh 'npm run ci:cy-run'
+                sh 'npm run ci:cy-run'
             }
         }
     }
