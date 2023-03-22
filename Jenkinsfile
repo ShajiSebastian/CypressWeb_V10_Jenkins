@@ -1,37 +1,26 @@
 pipeline {
-  // agent {
-  //   // this image provides everything needed to run Cypress
-  //   docker {
-  //     image 'cypress/included:10.8.0'
-  //   }
-  // }
-
-  agent any
-
-   tools {nodejs "NodeMar2023"}
-
-       environment {
-        CHROME_BIN = '/bin/google-chrome'
+    agent {
+        docker {
+            image 'cypress/base:12.16.1' 
+            args '-p 3000:3000' 
+        }
     }
-
-   stages {
-       stage('Dependencies') {
-           steps {
-               sh 'npm i'
-               sh 'npm install lambdatest-cypress-cli'
-           }
-       }
-       stage('Running scripts') {
-           steps {
-             sh 'npx cypress run'
-             sh 'docker run -it -v $PWD:/e2e -w /e2e cypress/included:10.8.0'
-               
-           }
-       }
-       stage('Deploy') {
-           steps {
-               echo 'Deploying....'
-           }
-       }
-   }
+    stages {
+        stage('Install Dependencies') { 
+            steps {
+                sh 'npm ci'
+                sh 'npm run cy:verify'
+            }
+        }
+        stage('Build') { 
+            steps {
+                // sh 'npm run build'
+            }
+        }
+        stage('Test') { 
+            steps {
+                // sh 'npm run ci:cy-run'
+            }
+        }
+    }
 }
